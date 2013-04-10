@@ -21,16 +21,23 @@ This module provides recursive versions of mkdir and rmdir.  This might be usefu
 ## FUNCTIONS
 
 #### mktree
-Makes a directory tree with the given path.  If any elements of the tree do not already exist, this attempts to make them.
+Makes a directory tree with the given path.  If any elements of the tree do not already exist, this will make new directories.
+
 	sub mktree ($path, $mask = 0o777)
+
 Accepts an optional second argument, the permissions mask.  This is supplied to mkdir, and used for all of the directories it makes; the default is `777` (`a+rwx`).  It takes an integer, but you really should supply something in octal like 0o755 or :8('500').
 
+Returns True if successful.
 
 #### rmtree
 This deletes all files under a directory tree with the given path before deleting the directory itself.  It will recursively call unlink and rmdir until everything under the path is deleted.
 
+Returns True if successful, and False if it cannot delete a file.
+
 #### empty-directory
 Also deletes all items in a given directory, but leaves the directory itself intact.  After running this, the only thing in the path should be '.' and '..'.
+
+Returns True if successful, and False if it cannot delete a file.
 
 ## TODO
 
