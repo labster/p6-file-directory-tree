@@ -1,0 +1,8 @@
+{
+  "name"        : "File::Directory::Tree",
+  "version"     : "*",
+  "description" : "Port of File::Path::Tiny - create and delete directory trees",
+  "author"      : "labster",
+  "depends"     : [ "File::Spec", "IO::Path::More" ],
+  "source-url"  : "git://github.com/labster/p6-file-directory-tree.git"
+}
