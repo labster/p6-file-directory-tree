@@ -1,17 +1,13 @@
 module File::Directory::Tree;
 
-use File::Spec;
-use IO::Path::More;
 
-# this will use IO::Path instead of IO::Path::More when .parent is ported
-
-sub mktree ($path, Int :$mask = 0o777 ) is export {
+multi sub mktree (Cool:D $path is copy, Int :$mask = 0o777 ) is export {
 	return True if $path.IO ~~ :d;
-	my $p = IO::Path::More.new($path);
+	$path.=path;
 	my @makedirs;
-	while $p !~~ :e {
-		@makedirs.push($p);
-		$p.=parent;
+	while $path !~~ :e {
+		@makedirs.push($path);
+		$path.=parent;
 	}
 	for @makedirs.reverse -> $dir {
 		mkdir($dir, $mask) or return False unless $dir.e;
@@ -19,24 +15,28 @@ sub mktree ($path, Int :$mask = 0o777 ) is export {
 	True;
 }
 
-#these too.  Thanks to .contents, we currently have an strange mix of IO::Path
-#and IO::Path::More where .path and .Str are defined differently.
 
-sub empty-directory ($path-to-empty) is export {
-	my $path = IO::Path::More.new(~$path-to-empty);
-	$path.d or fail "$path-to-empty is not a directory";
+multi sub empty-directory (Cool:D $path is copy) {
+    empty-directory $path.path;
+}
+
+multi sub empty-directory (IO::Path:D $path) is export {
+	$path.d or fail "$path is not a directory";
 	for $path.contents -> $file {
 		#say $file.perl;
-		if $file.l.not and $file.d { rmtree $file.path }
-		else { unlink $file.path }
+		if $file.l.not and $file.d { rmtree $file }
+		else { unlink $file }
 	}
 	True;
 }
 
-sub rmtree ($path-to-remove) is export {
-	my $path = IO::Path::More.new(~$path-to-remove);
+multi sub rmtree (Cool:D $path is copy) {
+    rmtree $path.path ;
+}
+
+multi sub rmtree (IO::Path:D $path) is export {
 	return True if !$path.e;
-	$path.d or fail "$path-to-remove is not a directory";
+	$path.d or fail "$path is not a directory";
 	empty-directory($path.path) or return False;
 	rmdir($path.path) or return False;
 	True;
