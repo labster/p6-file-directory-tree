@@ -18,3 +18,5 @@ ok rmtree($tmppath.child("foo")), "rmtree runs";
 ok $tmppath.child("foo").e.not, "rmtree successfully deletes temp files";
 
 done;
+
+# vim: expandtab shiftwidth=4 ft=perl6
