@@ -7,8 +7,8 @@ plan 7;
 ok (my $tmpdir = $*TMPDIR), "We can haz a tmpdir";
 $tmpdir or skip_rest "for EPIC FAIL at finding a place to write";
 
-my $tmppath = $tmpdir.path;
-ok mktree($tmppath.child( 
+my $tmppath = $tmpdir.path.IO;
+ok mktree($tmppath.child(
     $*SPEC.catdir( "foo", "bar", $*SPEC.updir, "baz")).Str ), "mktree runs";
 ok $tmppath.child("foo").d, '$TEMP/foo exists';
 ok $tmppath.child('foo').dir.elems == 2, "mktree produces correct number of elements";
