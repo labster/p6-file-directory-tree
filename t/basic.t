@@ -4,7 +4,7 @@ use File::Directory::Tree;
 
 plan 7;
 
-ok (my $tmpdir = IO::Spec.tmpdir), "We can haz a tmpdir";
+ok (my $tmpdir = $*TMPDIR), "We can haz a tmpdir";
 $tmpdir or skip_rest "for EPIC FAIL at finding a place to write";
 
 my $tmppath = $tmpdir.path;
