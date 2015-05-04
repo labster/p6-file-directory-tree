@@ -1,6 +1,5 @@
 module File::Directory::Tree;
 
-
 multi sub mktree (Cool:D $path is copy, Int :$mask = 0o777 ) is export {
 	return True if $path.IO ~~ :d;
 	$path.=IO;
@@ -14,7 +13,6 @@ multi sub mktree (Cool:D $path is copy, Int :$mask = 0o777 ) is export {
 	}
 	True;
 }
-
 
 multi sub empty-directory (Cool:D $path is copy) {
     empty-directory $path.IO;
@@ -41,4 +39,3 @@ multi sub rmtree (IO::Path:D $path) is export {
 	rmdir($path.IO) or return False;
 	True;
 }
-
