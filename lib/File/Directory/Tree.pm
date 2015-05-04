@@ -3,7 +3,7 @@ module File::Directory::Tree;
 
 multi sub mktree (Cool:D $path is copy, Int :$mask = 0o777 ) is export {
 	return True if $path.IO ~~ :d;
-	$path.=path;
+	$path.=IO;
 	my @makedirs;
 	while $path !~~ :e {
 		@makedirs.push($path);
@@ -17,7 +17,7 @@ multi sub mktree (Cool:D $path is copy, Int :$mask = 0o777 ) is export {
 
 
 multi sub empty-directory (Cool:D $path is copy) {
-    empty-directory $path.path;
+    empty-directory $path.IO;
 }
 
 multi sub empty-directory (IO::Path:D $path) is export {
@@ -31,14 +31,14 @@ multi sub empty-directory (IO::Path:D $path) is export {
 }
 
 multi sub rmtree (Cool:D $path is copy) {
-    rmtree $path.path ;
+    rmtree $path.IO;
 }
 
 multi sub rmtree (IO::Path:D $path) is export {
 	return True if !$path.e;
 	$path.d or fail "$path is not a directory";
-	empty-directory($path.path) or return False;
-	rmdir($path.path) or return False;
+	empty-directory($path.IO) or return False;
+	rmdir($path.IO) or return False;
 	True;
 }
 
