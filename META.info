@@ -1,4 +1,5 @@
 {
+  "perl"        : "6.*",
   "name"        : "File::Directory::Tree",
   "version"     : "*",
   "description" : "Port of File::Path::Tiny - create and delete directory trees",
