@@ -5,12 +5,10 @@ platform: x64
 build: off
 
 install:
-  - choco install strawberryperl
+  - choco install rakudostar
+  - SET PATH=C:\rakudo\bin;C:\rakudo\share\perl6\site\bin;%PATH%
   - cd %APPVEYOR_BUILD_FOLDER%
-  - zef --verbose --depsonly install .
-
-test_script:
-  - perl6 -e 'say "1..1\nok 1"'
+  - zef --verbose --force-install install .
 
 shallow_clone: true
 
