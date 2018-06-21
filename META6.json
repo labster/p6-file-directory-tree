@@ -1,11 +1,22 @@
 {
-  "perl"        : "6.*",
-  "name"        : "File::Directory::Tree",
-  "license"     : "Artistic-2.0",
-  "version"     : "*",
-  "description" : "Port of File::Path::Tiny - create and delete directory trees",
-  "author"      : "labster",
-  "depends"     : [ ],
-  "provides"    : { "File::Directory::Tree" : "lib/File/Directory/Tree.pm" },
-  "source-url"  : "git://github.com/labster/p6-file-directory-tree.git"
+  "auth" : "cpan:LABSTER",
+  "authors" : [
+    "labster"
+  ],
+  "build-depends" : [ ],
+  "depends" : [ ],
+  "description" : "Create and delete directory trees",
+  "license" : "Artistic-2.0",
+  "name" : "File::Directory::Tree",
+  "perl" : "6.c",
+  "provides" : {
+    "File::Directory::Tree" : "lib/File/Directory/Tree.pm6"
+  },
+  "resources" : [ ],
+  "source-url" : "https://github.com/labster/p6-file-directory-tree.git",
+  "tags" : [
+    "filesystem"
+  ],
+  "test-depends" : [ ],
+  "version" : "1.0.0"
 }

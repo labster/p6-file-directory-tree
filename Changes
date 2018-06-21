@@ -1,0 +1,11 @@
+Revision history for File-Directory-Tree
+
+{{$NEXT}}
+    - First CPAN release
+    - Add POD documentation
+    - Use coercers instead of multi subs
+    
+*
+    - Provide mktree, rmtree, and empty-directory subs
+    - Occasional updates for continued functionality we got closer to Christmas
+    - Improved Windows support by Gabor Szabo
