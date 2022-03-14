@@ -4,10 +4,12 @@ p6-file-directory-tree
 [![Build Status](https://travis-ci.org/labster/p6-file-directory-tree.png)](https://travis-ci.org/labster/p6-file-directory-tree)
 [![Build status](https://ci.appveyor.com/api/projects/status/github/labster/p6-file-directory-tree?svg=true)](https://ci.appveyor.com/project/labster/p6-file-directory-tree)
 
-Port of File::Path::Tiny to Perl 6 - create and delete directory trees
+Raku module to create and delete directory trees.
 
 
 ## SYNOPSIS
+
+	use File::Directory::Tree;
 
 	# make a new directory tree
 	mktree "foo/bar/baz/quux";
@@ -48,7 +50,8 @@ Returns True if successful, and False if it cannot delete a file.
 
 ## SEE ALSO
 
-* [File::Spec](https://github.com/FROGGS/p6-File-Spec)
+* [IO::Path](https://docs.raku.org/type/IO::Path)
+* [File::Spec](https://github.com/FROGGS/p6-File-Spec) (now part of [IO::Spec](https://docs.raku.org/type/IO::Spec))
 
 ## AUTHOR
 
