@@ -2,11 +2,11 @@
   "perl"        : "6.*",
   "name"        : "File::Directory::Tree",
   "license"     : "Artistic-2.0",
-  "version"     : "*",
+  "version"     : "0.1",
   "description" : "Create and delete directory trees",
-  "auth"        : "labster",
+  "auth"        : "zef:labster",
   "authors"     : [ "Brent Laabs", "Paul Cochrane", "Zoffix Znet" ],
   "depends"     : [ ],
-  "provides"    : { "File::Directory::Tree" : "lib/File/Directory/Tree.pm" },
+  "provides"    : { "File::Directory::Tree" : "lib/File/Directory/Tree.rakumod" },
   "source-url"  : "git://github.com/labster/p6-file-directory-tree.git"
 }

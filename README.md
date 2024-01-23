@@ -1,8 +1,9 @@
 p6-file-directory-tree
 ======================
 
-[![Build Status](https://travis-ci.org/labster/p6-file-directory-tree.png)](https://travis-ci.org/labster/p6-file-directory-tree)
-[![Build status](https://ci.appveyor.com/api/projects/status/github/labster/p6-file-directory-tree?svg=true)](https://ci.appveyor.com/project/labster/p6-file-directory-tree)
+|last push to main|[![Linux Status](https://github.com/labster/p6-file-directory-tree/actions/workflows/Linux.yml/badge.svg?event=push)](https://github.com/labster/p6-file-directory-tree/actions)|[![MacOS Status](https://github.com/labster/p6-file-directory-tree/actions/workflows/MacOS.yml/badge.svg?event=push)](https://github.com/labster/p6-file-directory-tree/actions)|[![Windows Status](https://github.com/labster/p6-file-directory-tree/actions/workflows/Windows.yml/badge.svg?event=push)](https://github.com/labster/p6-file-directory-tree/actions) |
+|---|---|---|---| 
+|scheduled health check|[![Linux Status](https://github.com/labster/p6-file-directory-tree/actions/workflows/Linux.yml/badge.svg?event=schedule)](https://github.com/labster/p6-file-directory-tree/actions)|[![MacOS Status](https://github.com/labster/p6-file-directory-tree/actions/workflows/MacOS.yml/badge.svg?event=schedule)](https://github.com/labster/p6-file-directory-tree/actions)|[![Windows Status](https://github.com/labster/p6-file-directory-tree/actions/workflows/Windows.yml/badge.svg?event=schedule)](https://github.com/labster/p6-file-directory-tree/actions)| 
 
 Raku module to create and delete directory trees.
 

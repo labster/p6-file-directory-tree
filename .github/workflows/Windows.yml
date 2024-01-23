@@ -1,0 +1,27 @@
+# save as .github/workflows/Windows.yml
+name: Windows
+
+on:
+  push:
+    branches:
+          - main
+          - master
+          - 'releases/**'
+  pull_request:
+  schedule: # MIN HOUR DAYOFMONTH MONTH DAYOFWEEK - schedule at least a bi-monthly run - just to keep an eye on long-time-not-touched repositories
+    - cron: '41 21 7 * *'
+
+jobs:
+  launch:
+    uses: ./.github/workflows/runner.yml
+    with:
+      os: ${{ github.workflow }}
+      os_version: latest
+      raku_version: latest
+      verbosity: error
+      test_degree: 2
+      skip_deps_tests: false
+      run_prove6: ${{ github.event_name == 'pull_request' }}
+      install_module: ${{ github.event_name != 'pull_request' }}
+      run_tests_script: ${{ github.event_name == 'pull_request' }}
+      
